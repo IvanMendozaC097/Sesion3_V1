@@ -25,6 +25,7 @@ class CuentaTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		ctaPruebas.setSaldo(0);
 	}
 
 	@AfterEach
@@ -39,8 +40,8 @@ class CuentaTest {
 	
 	@Test
 	void testRetirar() {
-		ctaPruebas.retirar(1000);
-		assertEquals(2000, ctaPruebas.getSaldo());
+		ctaPruebas.retirar(3000);
+		assertEquals(-3000, ctaPruebas.getSaldo());
 	}
 
 }

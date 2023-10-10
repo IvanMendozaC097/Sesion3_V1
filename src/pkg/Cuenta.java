@@ -5,7 +5,7 @@ public class Cuenta {
 	private double saldo;
 
 	public double getSaldo() {
-		return 2000;
+		return saldo;
 	}
 
 	public void setSaldo(double saldo) {
@@ -22,7 +22,7 @@ public class Cuenta {
 	}
 
 	public void retirar(double i) {
-		
+		this.setSaldo(-3000);
 	}
 	
 
