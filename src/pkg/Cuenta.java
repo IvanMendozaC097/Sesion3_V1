@@ -30,5 +30,10 @@ public class Cuenta {
 	public void retirar(double i) {
 		this.setSaldo(this.getSaldo()-i);
 	}
+
+	public double saldoFinal() {
+		// TODO Auto-generated method stub
+		return saldo;
+	}
 	
 }
