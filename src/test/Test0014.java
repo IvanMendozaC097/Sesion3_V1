@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import pkg.Calculadora;
 import pkg.Cuenta;
 
 class Test0014 {
@@ -18,8 +17,8 @@ class Test0014 {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		cta12345 = new Cuenta(0);
-		cta67890 = new Cuenta(0);
+		cta12345 = new Cuenta(50, "12345", "Ivan");
+		cta67890 = new Cuenta(0, "67890", "Ivan");
 	}
 
 	@AfterAll
@@ -36,14 +35,19 @@ class Test0014 {
 
 	@Test
 	void testCta12345() {
-		cta12345.setSaldo(-250);
+		cta12345.retirar(200);
+		cta12345.ingresar(100);
+		cta12345.retirar(200);
 		assertEquals(-250, cta12345.saldoFinal()); 
 	}
 	
 	@Test
 	void testCta67890() {
-		cta67890.setSaldo(-450);
-		assertEquals(-450, cta67890.saldoFinal()); 
+		System.out.println("-------------------------------------");
+		cta67890.retirar(350);
+		cta67890.retirar(200);
+		cta67890.ingresar(50);
+		assertEquals(-450, cta67890.saldoFinal());
 	}
 
 }
