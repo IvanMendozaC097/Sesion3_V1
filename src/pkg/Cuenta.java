@@ -55,13 +55,31 @@ public class Cuenta {
 	public double saldoFinal() {
 
 		double saldofinal = saldo;
-		if(numero == "12345") {
-			return -250;
-		}else if(numero == "67890") {
-			return -450;
-		}else {
-			return -1;
-		}
+		System.out.println("Saldo inicial " + saldo + " €");
+		for (Movimiento m : mMovimientos) {
+			
+			if(m.getDetalle() == "H") {
+				System.out.println("Ingreso de " + m.getImporte() + " €");
+				saldofinal += m.getImporte();
+				
+			}else if(m.getDetalle() == "D") {
+				System.out.println("Reintegro de " + m.getImporte() + " €");
+				
+				if(saldofinal - m.getImporte() >= -500) {
+					saldofinal -= m.getImporte();
+					
+				}else {
+		            System.out.println("Saldo insuficiente (saldo " + saldofinal + " €) en la cuenta " + numero + " para el reintegro de " +m.getImporte());
+		            saldofinal = -500;
+				}
+				
+			}else {
+				return -1;
+			}	
+        }
+		
+		System.out.println("Saldo final " + saldofinal + " €");
+		return saldofinal;
 	}
 	
 }
